@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Summary"
   spec.homepage      = "https://gitlab.com/hexlethq/programs/rails/hexlet-groups/rails-19/132830/-/tree/main/exercises"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = "= 3.1"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://gitlab.com/hexlethq/programs/rails/hexlet-groups/rails-19/132830/-/tree/main/exercises"

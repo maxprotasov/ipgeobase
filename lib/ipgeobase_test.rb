@@ -1,31 +1,33 @@
 # frozen_string_literal: true
 
-require "../test/test_helper.rb"
+require "../test/test_helper"
 require "webmock/minitest"
 
-require "./ipgeobase.rb"
+require "./ipgeobase"
 
+# class
 class IpgeobaseTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::Ipgeobase::VERSION
   end
 
   def setup
-    stub_request(:get, "http://ip-api.com/xml/83.169.216.199").
-      to_return(body: File.new('../tmp/ipgeobase_mock.xml'), status: 200)
+    stub_request(:get, "http://ip-api.com/xml/83.169.216.199")
+      .to_return(body: File.new("../tmp/ipgeobase_mock.xml"), status: 200)
 
     @test_ip = "83.169.216.199"
     @ipgeobase = Ipgeobase.lookup(@test_ip)
   end
-   def test_city
+
+  def test_city
     assert_equal "Yekaterinburg", @ipgeobase.city
   end
 
   def test_country
-    assert_equal  "Russia", @ipgeobase.country
+    assert_equal "Russia", @ipgeobase.country
   end
 
-  def test_countryCode
+  def test_country_code
     assert_equal "RU", @ipgeobase.countryCode
   end
 
