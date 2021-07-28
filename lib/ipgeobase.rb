@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 require_relative "ipgeobase/version"
-require_relative "ipgeobase/address.rb"
+require_relative "ipgeobase/address"
 require "addressable/uri"
 require "net/http"
 require "json"
-require "happymapper"
 
 # module
 module Ipgeobase
