@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "../test_helper"
 require "webmock/minitest"
 
-require "../../lib/ipgeobase"
+require_relative "../test_helper"
+require_relative "../../lib/ipgeobase"
 
 # class
 class IpgeobaseTest < Minitest::Test
@@ -13,7 +13,7 @@ class IpgeobaseTest < Minitest::Test
 
   def setup
     stub_request(:get, "http://ip-api.com/xml/83.169.216.199")
-      .to_return(body: File.new("../mock/ipgeobase_mock.xml"), status: 200)
+      .to_return(body: File.read("test/mock/ipgeobase_mock.xml"), status: 200)
 
     @test_ip = "83.169.216.199"
     @ipgeobase = Ipgeobase.lookup(@test_ip)
