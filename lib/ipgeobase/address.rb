@@ -3,7 +3,6 @@
 require "happymapper"
 
 module Ipgeobase
-
   class Address
     include HappyMapper
     tag "query"
